@@ -37,4 +37,4 @@ Veja a política completa dentro do aplicativo, em Configurações do aplicativo
 
 ## Licença
 
-Este projeto é distribuído sob a [licença MIT](LICENSE).
+Este projeto é distribuído sob a [GNU GPLv3](LICENSE). Você pode usar, estudar, modificar e redistribuir o código. Se distribuir uma versão modificada, ela também precisa ser publicada sob a GPLv3, com o código-fonte disponível.
