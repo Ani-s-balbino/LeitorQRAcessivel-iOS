@@ -34,3 +34,7 @@ O GitHub Actions também compila o projeto a cada envio, para o simulador, sem a
 
 Nenhum dado pessoal é coletado ou enviado. A leitura do QR code é feita no próprio aparelho.
 Veja a política completa dentro do aplicativo, em Configurações do aplicativo > Privacidade e termos.
+
+## Licença
+
+Este projeto é distribuído sob a [licença MIT](LICENSE).
