@@ -1,0 +1,28 @@
+name: Build iOS
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar XcodeGen
+        run: brew install xcodegen
+
+      - name: Gerar o projeto do Xcode
+        run: xcodegen generate
+
+      - name: Compilar para o simulador (sem assinatura)
+        run: |
+          xcodebuild \
+            -project LeitorQRAcessivel.xcodeproj \
+            -scheme LeitorQRAcessivel \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
