@@ -28,7 +28,7 @@ struct ConfiguracoesView: View {
                     .accessibilityAddTraits(.isHeader)
 
                 secao(titulo: "Como o app avisa durante a busca") {
-                    Text("Escolha um. Vibração, bips ou os dois.")
+                    Text("Escolha uma opção: nenhum aviso sonoro ou tátil, só bips, só vibração, ou os dois.")
                         .font(.callout)
                     Picker("Como o app avisa", selection: $modo) {
                         ForEach(ModoFeedback.allCases) { opcao in
@@ -47,7 +47,7 @@ struct ConfiguracoesView: View {
                         .onChange(of: vozDoApp) { ligado in
                             Preferencias.vozDoApp = ligado
                         }
-                    Text("Deixe esta opção desligada se o VoiceOver estiver ligado. Com o VoiceOver e a voz do app juntos, as duas falam ao mesmo tempo. Para usar a voz do app, desligue o VoiceOver antes de começar.")
+                    Text("Esta opção vem desligada, porque o VoiceOver já lê os avisos da busca. Se quiser ouvir também a voz do aplicativo, ligue esta opção. Para evitar falas sobrepostas, use uma das duas, não as duas ao mesmo tempo.")
                         .font(.callout)
                     if UIAccessibility.isVoiceOverRunning {
                         Text("Atenção: o VoiceOver está ligado agora. Se houver sobreposição de falas entre a voz do aplicativo e o VoiceOver, desligue o leitor enquanto o aplicativo estiver buscando um QR code.")

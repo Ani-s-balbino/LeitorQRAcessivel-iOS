@@ -37,12 +37,13 @@ enum Preferencias {
 
 /// Como o app avisa durante a busca. Os três modos são as opções da tela de configurações.
 enum ModoFeedback: String, CaseIterable, Identifiable {
-    case vibracao, bips, ambos
+    case nenhum, vibracao, bips, ambos
 
     var id: String { rawValue }
 
     var titulo: String {
         switch self {
+        case .nenhum: return "Nenhum (sem bips e sem vibração)"
         case .vibracao: return "Vibração"
         case .bips: return "Bips"
         case .ambos: return "Vibração e bips"
@@ -54,11 +55,13 @@ enum ModoFeedback: String, CaseIterable, Identifiable {
             switch (Preferencias.vibracao, Preferencias.bips) {
             case (true, true): return .ambos
             case (true, false): return .vibracao
-            default: return .bips
+            case (false, true): return .bips
+            default: return .nenhum
             }
         }
         set {
             switch newValue {
+            case .nenhum: Preferencias.vibracao = false; Preferencias.bips = false
             case .vibracao: Preferencias.vibracao = true; Preferencias.bips = false
             case .bips: Preferencias.vibracao = false; Preferencias.bips = true
             case .ambos: Preferencias.vibracao = true; Preferencias.bips = true
